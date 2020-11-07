@@ -1,7 +1,10 @@
+
 ### JAVA BASICS
-### JAVA BASICS
-Java uses the basics term as variables, primitive types, character strings, and arrays, default values, and literals. 
-Java use operators for building expressions, which compute values; expressions are the core components of statements.
-There is use control flow statements, seven primitive data types(char, integer, float, byte, short, long, double).
+Java uses the basics term as variables, primitive types, character strings, 
+and arrays, default values, and literals. 
+Java use operators for building expressions, which compute values; expressions
+are the core components of statements.
+There is use control flow statements, seven primitive data types(char, integer,
+float, byte, short, long, double).
 
 
