@@ -1,105 +1,14 @@
 ###What are Java Imports?
 
-Well, since you are already familiar with Java packages, Java imports flow naturally from packages. In Java, there are 
-TONS of useful built in classes and methods that allow us to do things like:
-
-Read the contents of a file / Create a file and populate it with contents
-Compare dates with each other (i.e. see if one date is before or after another)
-Send emails to anyone
-Okay, that’s great, so what does that have to do with imports? Well, all of these classes are nicely organized in 
-packages, and if you want to USE these classes, you’ll need to import them into your project. So, this means that 
-before you can play around with Dates, you’ll need to import the Date object first!
-
-What do Java imports look like in Code?
-Well, if we continue on our example of Dates, then it would look like this:
-
+Java imports at the very beginning of code segment packages “java.util”, there are 
+Classes called for example, “Date” and “Calendar”, and we want to use them in your any 
+program.  The reason that we need to tell Java that we are going to use these Classes is fo
+example:
 import java.util.Calendar;
 import java.util.Date;
- 
-public class MyProgram
-{
-  public static void main(String[] args)
-  {
-    Calendar calendar = Calendar.getInstance();
-    calendar.set(2012, 8, 19);
-    Date firstDate = calendar.getTime();
- 
-    calendar.set(2012, 8, 1);
-    Date secondDate = calendar.getTime();
- 
-    System.out.println("Is firstDate before secondDate? " + firstDate.before(secondDate));
-    System.out.println("Is firstDate after secondDate? " + firstDate.after(secondDate));
-  }
-}
-If you have a keen eye, you’ll spot in the imports at the very beginning of this code segment. All this code means,
-is that in the package “java.util”, there are Classes called “Date” and “Calendar”, and we want to use them in our
-program! The reason that we need to tell Java that we are going to use these Classes is for the sake of brevity and 
-specificity. A great example of this is the Date class. You may or may not know this, but there are more than one
-Date classes in Java. There is a java.util.Date class and a java.sql.Date class.
 
-So, you can imagine how it would be impossible for Java to decide which Date class you’re actually referring to right? 
-So you just need to specify which one you’d like to use.
+Notice that the import statements at the top are gone, and we’ve now prefixed every Date and Calendar
+reference with java.util. This is correct code and will compile just fine. But it’s a bit annoying to
+have to write out the java.util every time you reference Date or Calendar. So this is why we have
+import statements in Java. 
 
-###Why do I need Java Imports
-
-Well, the truth is that you don’t actually NEED to use imports. You could get away with referring to the full package name
-of the Class you with to use. So the code above could be re-written like so:
-
-public class MyProgram
-{
-  public static void main(String[] args)
-  {
-    java.util.Calendar calendar = java.util.Calendar.getInstance();
-    calendar.set(2012, 8, 19);
-    java.util.Date firstDate = calendar.getTime();
- 
-    calendar.set(2012, 8, 1);
-    java.util.Date secondDate = calendar.getTime();
- 
-    System.out.println("Is firstDate before secondDate? " + firstDate.before(secondDate));
-    System.out.println("Is firstDate after secondDate? " + firstDate.after(secondDate));
-  }
-}
-Notice that the import statements at the top are gone, and we’ve now prefixed every Date and Calendar reference with java.util.
-This is correct code and will compile just fine. But it’s a bit annoying to have to write out the java.util every time
-you reference Date or Calendar. So this is why we have import statements in Java. It just makes life easier!
-
-Is there an easy way to use Java Imports?
-There is! In your Spring STS IDE, you can use a shortcut key that will automatically detect any Classes that haven’t
-yet been imported and attempt to automatically determine what package that Class exists in and put in the import
-statement in code. The shortcut keys are Ctrl-Shift-O (that’s Control-Shift-“Oh”, not zero), try it out yourself,
-copy/paste the following code, you’ll see that there are errors with all the Date and Calendar classes. Hit Ctrl-Shift-O, 
-Spring STS will ask you if you want java.util.Date or java.sql.Date, choose java.util.Date and voila! The import code 
-is automatically added to the top of your Class file!
-
-public class MyProgram
-{
-  public static void main(String[] args)
-  {
-    Calendar calendar = Calendar.getInstance();
-    calendar.set(2012, 8, 19);
-    Date firstDate = calendar.getTime();
- 
-    calendar.set(2012, 8, 1);
-    Date secondDate = calendar.getTime();
- 
-    System.out.println("Is firstDate before secondDate? " + firstDate.before(secondDate));
-    System.out.println("Is firstDate after secondDate? " + firstDate.after(secondDate));
-  }
-}
-###Importing ALL Classes in a Package
-
-There is one other “shortcut” method of importing classes in Java, and that’s by using a wildcard (*). Say for instance
-you just want to import ALL of the classes that belong in the java.util package, you could just use the code import 
-java.util.*. This will import everything in java.util, but it’s important to note that it won’t import any sub-packages
-within java.util. However, this “importing method” is not really used much anymore due to the fact that IDEs (like Spring STS) 
-are able to import classes automatically by organizing your import (i.e. via Ctrl-Shift-O shortcut key). But for the 
-sake of completion, I figured I would talk about the wildcard imports. Use them if you like!
-
-
-For those of you who may be asking the question, “Why can I use things like String or Integer without having to do imports?”.
-Excellent question and very astute observation! This is because the most commonly used Classes reside in the java.lang package, 
-and this package is essentially auto-imported for us for convenience. How nice of Java to do that for us 🙂
-
-I hope that little Java tutorial helped clear the air on what Java imports are and how they are used. If something is 
-still not clear, please ask your questions in the comments section and I’ll respond ASAP, I promise! So for now, keep coding and keep learning!
